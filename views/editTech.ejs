@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Martial Arts App</title>
+    <style>
+      body {
+          background-color: lightgray;
+          font-family: Arial;
+      }
+  </style>
+</head>
+<body>
+    <%- include ('partials/navbar.ejs') %>
+
+    <div class="container">
+        <br>
+        <div class="text-center"><h2>Edit technique</h2></div>
+        <br>
+        <div class="text-center">
+          <% if (techniques) { %>
+            <form action="/editTech/<%= techniques.technique_Id%>" method="POST">
+                <label for="name">Technique name:</label><br>
+                <input type="text" id="name" name="name" value = "<%= techniques.technique_name %>"><br>
+                <label for="step">Technique moves:</label><br>
+                <input type="text" id="step" name="step" value = "<%= techniques.technique_step %>"><br>
+                <label for="image">Technique image:</label><br>
+                <input type="text" id="image" name="image" value = "<%= techniques.image %>"><br><br>
+
+                <button type="submit">Update Technique</button>
+            </form> 
+          <% } else {%>
+            <p> no technique found </p>
+          <% } %>
+          <a href="/">Back</a>
+        </div>
+    </div>
+</body>
+</html>

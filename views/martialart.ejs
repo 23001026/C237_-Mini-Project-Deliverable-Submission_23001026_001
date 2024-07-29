@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Martial Arts App</title>
+    <style>
+        body {
+            background-color: lightgray;
+            font-family: Arial;
+        }
+        table {
+            border-style: 40px solid black;
+            border-style: double;
+        }
+        th, td {
+            padding: 50px;
+        }
+    </style>
+</head>
+<body>
+    <%- include('partials/navbar.ejs') %>
+    <table class="table table-hover small text-center">
+        <thead>
+            <tr>
+                <th scope="col" width="100">Martial art name</th>
+                <th scope="col" width="100">Martial art image</th>
+                <th scope="col" width="50">Description</th>
+                <th scope="col" width="50">Techniques</th>
+                <th scope="col" width="50">Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(let i = 0; i < martial_arts.length; i++) { %>
+                <tr>
+                    <td><p><%= martial_arts[i].martial_art_name %></p></td>
+                    <td><img src="<%= martial_arts[i].image %>" width="100"></td>
+                    <td><%= martial_arts[i].description %></td>
+                    <td><a href="/martialart/<%= martial_arts[i].martial_art_Id %>">Techniques</a></td>
+                    <td><a href="/editMA/<%= martial_arts[i].martial_art_Id %>">Edit</a></td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</body>
+</html>
