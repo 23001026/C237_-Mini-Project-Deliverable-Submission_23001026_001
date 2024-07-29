@@ -6,7 +6,11 @@ const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'Republic_C207',
-    database: 'c237_miniprojectapp'
+    database: 'c237_miniprojectapp',
+    host: 'freedb.tech',
+    user: 'freedb_ashton',
+    password: 'n2vWFfP$?HwyP2z',
+    database: 'freedb_c237_miniprojectapp',
 });
 
 connection.connect((err) => {
